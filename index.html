@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"content="supp">
+  <meta name="keywords" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Shape My Moves: Text-Driven Shape-Aware Synthesis of Human Motions</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <!-- <link rel="icon" href="./static/images/favicon.svg"> -->
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+  <script src="./static/js/script.js"></script>
+
+</head>
+<body onload="selectAction('run', 0); div_selectAction(0, 0);">
+
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-2 publication-title" style="font-size: 32pt;font-weight:bold"><span>Shape My Moves</span>
+          <br><span style="font-weight:normal">Text-Driven Shape-Aware Synthesis of Human Motions</span></h1>
+
+          <div class="is-size-5 publication-authors" id="div-row-authors">
+			      <span class="author-block">
+              <a href="https://tinghliao.github.io/">Ting-Hsuan Liao</a><sup>1,2</sup>&nbsp&nbsp</span>
+            <span class="author-block">
+              <a href="https://zhouyisjtu.github.io/">Yi Zhou</a><sup>1</sup>&nbsp&nbsp</span>
+            <span class="author-block">
+              <a href="https://research.adobe.com/person/yu-shen/">Yu Shen</a><sup>1</sup>&nbsp&nbsp</span>
+            <span class="author-block">
+              <a href="https://research.adobe.com/person/paulchhuang/">Chun-Hao Paul Huang</a><sup>1</sup>&nbsp&nbsp</span>
+            <span class="author-block">
+              <a href="https://research.adobe.com/person/saayan-mitra/">Saayan Mitra</a><sup>1</sup>&nbsp&nbsp</span>
+            <span class="author-block">
+              <a href="https://jbhuang0604.github.io/">Jia-Bin Huang</a><sup>2</sup>&nbsp&nbsp</span>
+            <span class="author-block">
+                <a href="https://uttaranb127.github.io">Uttaran Bhattacharya</a><sup>1</sup>&nbsp&nbsp</span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>Adobe Research &nbsp&nbsp </span>
+            <span class="author-block"><sup>2</sup>University of Maryland College Park &nbsp&nbsp </span>
+          </div>
+
+          <h2 class="title is-4 publication-title" style="margin-top: 20px; margin-bottom: 16px;">CVPR 2025</h1>
+
+          <!-- <div style="text-align: left; font-size: 15px;">
+            This webpage showcases:
+            <ul>
+              <li>
+                <b>Comparisons with Baselines.</b> Visual comparisons of ShapeMove, our proposed
+                method for shape-aware motion synthesis from text, with current state-of-the-art
+                baselines for text-to-motion synthesis.
+              </li>
+              <li>
+                <b>Motion Synthesis on Various Body Shapes.</b> The diversity of motions for the
+                same actions, owing to different body shapes, as synthesized by ShapeMove. This
+                motion diversity due to different body shapes underlines the purpose of shape-aware
+                motion synthesis.
+              </li>
+            </ul>
+            Please refer to our main paper and supplementary document for more details on
+            the results.
+            To view the content, please scroll down or click one of these two buttons.
+          </div> -->
+
+          <!-- <div class="column has-text-centered">
+            <div class="publication-links">
+              
+              <span class="link-block">
+                <a href="#compare"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span>Comparisons with Baselines</span>
+                  </a>
+              </span>
+
+              <span class="link-block">
+                <a href="#result"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span>Motion Synthesis on Various Body Shapes</span>
+                  </a>
+              </span>
+            </div>
+
+          </div> -->
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container">
+      <!-- <div class="columns is-centered"> -->
+      <div id="link_block">
+        <!-- <span class="link-block">
+          <a href="#cat"
+            class="external-link button is-normal is-rounded is-light">
+            <span>Cat</span>
+          </a>
+        </span> -->
+      </div>
+
+      <h1 id="result" style="text-align: center; font-size: 30px;"> 
+        Motion Synthesis on Various Body Shapes
+      </h1>
+      <p>We showcase results of our model <strong>ShapeMove</strong> when it is applied to synthesize the same actions for different body shapes. In the following videos, 
+        we use the same motion description with different shape descriptions to demonstrate how our method captures the natural variations in performing the same action by the different body types.
+
+        The first row of video illustrates four sample body types. 
+        The Action buttons allow choosing and displaying different motions executed by these four body types.</p>
+      <br/>
+      
+      <div style="display: flex;flex-direction: row;">
+        <p style="margin-top: 5px; text-align: center; width: 25%; padding:.2%;"><strong>Body Type 1</strong></p>
+        <p style="margin-top: 5px; text-align: center; width: 25%; padding:.2%;"><strong>Body Type 2</strong></p>
+        <p style="margin-top: 5px; text-align: center; width: 25%; padding:.2%"><strong>Body Type 3</strong></p>
+        <p style="margin-top: 5px; text-align: center; width: 25%; padding:.2%"><strong>Body Type 4</strong></p>
+      </div>
+
+      
+
+      <div id="body_video_block">
+
+      </div>
+
+      <script>
+        add_body_video();
+      </script>
+
+
+      <p><b>Actions</b></p>
+      <div class="btn-group">
+          <button class='btn-img-div' style="width:23%" onclick="div_selectAction(0, 0)">Run</button>
+          <button class='btn-img-div' style="width:23%" onclick="div_selectAction(7, 1)">Walk</button>
+          <button class='btn-img-div' style="width:23%" onclick="div_selectAction(5, 2)">Kick</button>
+          <button class='btn-img-div' style="width:23%" onclick="div_selectAction(11, 3)">Jump</button>
+      </div>
+      <!-- <div id="results-carousel" class="carousel results-carousel"> -->
+      </br></br>
+
+      <div id="diversity_video_block">
+
+      </div>
+      </br>
+      <!-- </div> -->
+    </div>
+  </div>
+</section>
+
+
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container">
+      <div id="link_block">
+      </div>
+
+      <h1 id="result" style="text-align: center; font-size: 30px;"> 
+        Method <span style="font-size: 20px;"><a href="#top">&uarr; <span style="font-size: 15px;">back to top</span></a></span>
+      </h1>
+      <p>In the inference phase (b), our model predicts motion tokens and the shape parameter from text inputs. 
+        We de-quantize these tokens using FSQ, and project into shape parameters with Projector. 
+        We concatenate Shape and Motion feature, and decode into the generated motion sequence with the Motion Decoder. 
+        Our model effectively synthesizes shape parameters and shape-aware motions reflecting the physical form and actions described in the input text.</p>
+      <br/>
+
+      <div id='subsec:method-overview' class="row py-5 mt-5 bg-dark" style="text-align: center;">
+        <img src="assets/overview.svg" style="width: 80%;"/> 
+       </div>
+      </div>
+      </br>
+
+      <!-- </div> -->
+    </div>
+  </div>
+</section>
+
+
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container">
+      <!-- <div class="columns is-centered"> -->
+      <div id="link_block">
+        <!-- <span class="link-block">
+          <a href="#cat"
+            class="external-link button is-normal is-rounded is-light">
+            <span>Cat</span>
+          </a>
+        </span> -->
+      </div>
+
+      <h1 id="compare" style="text-align: center; font-size: 30px;"> 
+        Comparisons with Baselines for Given Body Shapes <span style="font-size: 20px;"><a href="#top">&uarr; <span style="font-size: 15px;">back to top</span></a></span></h1>
+      <p>We showcase comparative results here among all of the baselines, 
+        including T2M-GPT [1], MotionDiffuse [2], MotionGPT [3], MLD [4], and MDM [5]. We show the <strong style="color: rgb(169, 83, 3);">ground truth motion and body shape in the first column</strong> for reference.
+
+        This page contains 30 samples categorized by different actions. 
+        Selecting a particular Action, e.g., 'Run', shows a list of sample videos corresponding to the selected action type. Each individual video in this list can then be selected and viewed.</p>
+      <br/>
+
+      <p><b>Actions</b></p>
+      <div class="btn-group">
+          <button class='btn-img' style="width:23%" onclick="selectAction('run', 0)">Run</button>
+          <button class='btn-img' style="width:23%" onclick="selectAction('walk', 1)">Walk</button>
+          <button class='btn-img' style="width:23%" onclick="selectAction('jump', 2)">Jump</button>
+          <button class='btn-img' style="width:23%" onclick="selectAction('swim', 3)">Swim</button>
+      </div>
+      <div class="btn-group">
+        <button class='btn-img' style="width:23%" onclick="selectAction('gymnastic', 4)">Gymnastic</button>
+        <button class='btn-img' style="width:23%" onclick="selectAction('walk_stair', 5)">Walk Stair</button>
+        <button class='btn-img' style="width:23%" onclick="selectAction('squat', 6)">Squat</button>
+        <button class='btn-img' style="width:23%" onclick="selectAction('other', 7)">Others</button>
+      </div>
+      <br/><br/>
+      
+      <p><b>Videos</b></p>
+      <div class="btn-group" id="actionID">
+        <!-- Condition 2 Buttons will be filled based on Condition 1 -->
+      </div>
+      <br/><br/>
+
+      <div id="text_block">
+        <p id="shape-des"> </p>
+        <p id="motion-des"> </p>
+      </div>
+
+      <br/><br/>
+      <!-- <div id="results-carousel" class="carousel results-carousel"> -->
+      <div style="display: flex;flex-direction: row;">
+        <p style="margin-top: 0px; text-align: center; width: 24.7%; padding:.0%; font-size: 20px; border-right: 2px solid rgb(169, 83, 3);"><strong style="color: rgb(169, 22, 3);">Ground Truth</strong></p>
+        <p style="margin-top: 0px; text-align: center; width: 24.7%; padding:.0%; font-size: 20px;"><strong style="color: teal;">Ours</strong></p>
+        <!-- <p style="margin-top: 5px; text-align: center; width: 20%; padding:.2%"><strong>MotionGPT</strong><br/><mark style="background: none; color: white">.</mark></p> -->
+        <p style="margin-top: 0px; text-align: center; width: 24.7%; padding:.0%"><strong>MotionDiffuse</strong><br/><mark style="background: none; color: white">.</mark></p>
+        <p style="margin-top: 0px; text-align: center; width: 24.7%; padding:.0%"><strong>T2M-GPT</strong></p>
+        <!-- <p style="margin-top: 5px; text-align: center; width: 20%; padding:.2%">Consistent4D<br/><mark style="background: none; color: white">.</mark></p> -->
+      </div>     
+
+      <div id="video_block" style="flex-wrap: wrap; display: flex;">
+
+      </div>
+
+      <div style="display: flex;flex-direction: row;">
+        <p style="margin-top: 0px; text-align: center; width: 24.7%; padding:.0%; padding-top: 1%; border-right: 2px solid rgb(169, 83, 3);"><strong>Ground Truth Body Shape</strong></p>
+        <p style="margin-top: 0px; text-align: center; width: 24.7%; padding:.0%; padding-top: 1%;"><strong>MotionGPT</strong></p>
+        <p style="margin-top: 0px; text-align: center; width: 24.7%; padding:.0%; padding-top: 1%;"><strong>MLD</strong></p>
+        <p style="margin-top: 0px; text-align: center; width: 24.7%; padding:.0%; padding-top: 1%;"><strong>MDM</strong><br/><mark style="background: none; color: white">.</mark></p>
+      </div>
+
+      <div id="video_block2" style="flex-wrap: wrap; display: flex;">
+      </div>
+      
+      </br></br>
+
+      <div>
+        References </br>
+        <small>[1] Jianrong Zhang, Yangsong Zhang, Xiaodong Cun, Shaoli Huang, Yong Zhang, Hongwei Zhao, Hongtao Lu, and Xi Shen. T2m-gpt: Generating human motion from textual descriptions with discrete representations. In CVPR, 2023.</small>
+        </br><small>[2] Mingyuan Zhang, Zhongang Cai, Liang Pan, Fangzhou Hong, Xinying Guo, Lei Yang, and Ziwei Liu. Motiondiffuse: Text-driven human motion generation with diffusion model. arXiv preprint, 2022.</small>
+        </br><small>[3] Biao Jiang, Xin Chen, Wen Liu, Jingyi Yu, Gang Yu, and Tao Chen. Motiongpt: Human motion as a foreign language. NIPS, 2024.</small>
+        </br><small>[4] Xin Chen, Biao Jiang, Wen Liu, Zilong Huang, Bin Fu, Tao Chen, and Gang Yu. Executing your commands via motion diffusion in latent space. In CVPR, 2023.</small>
+        </br><small>[5] Guy Tevet, Sigal Raab, Brian Gordon, Yoni Shafir, Daniel Cohen-or, and Amit Haim Bermano. Human motion diffusion model. In ICLR, 2023.</small>
+      </div>
+      
+
+
+      <!-- </div> -->
+    </div>
+  </div>
+</section>
+
+<!-- <hr>  -->
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code> TBU </code></pre>
+  </div>
+</section>
+
+
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This webpage template is adapted from <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>, under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0 License</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
